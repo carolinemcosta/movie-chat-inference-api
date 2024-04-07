@@ -1,14 +1,15 @@
 from fastapi import FastAPI
 
-from src.routers import chat, movie
+from src.routers import chat
 
 app = FastAPI()
 
 
-app.include_router(movie.router)
 app.include_router(chat.router)
 
 
 @app.get("/")
 async def root():
-    return {"message": "Hello Bigger Applications!"}
+    return {
+        "message": "Hello, I am MoReChat! I'm a chatbot for movie recommendations. \n\What do you feel like watching?"
+    }
