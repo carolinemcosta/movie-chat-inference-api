@@ -7,9 +7,7 @@ from .enums import GroqModels
 class UserRequest(BaseModel):
     """UserQuestion model."""
 
-    question: Annotated[
-        str, StringConstraints(max_length=200, strict=True, pattern="[^0-9a-zA-Z:,]+")
-    ]
+    question: str
     model: GroqModels
 
 
@@ -26,5 +24,5 @@ class ResponseMetadata(BaseModel):
 class ModelResponse(BaseModel):
     """ModelAnswer model."""
 
-    answer: Annotated[str, StringConstraints(strict=True, pattern="[^0-9a-zA-Z:,]+")]
+    answer: str
     metadata: ResponseMetadata
